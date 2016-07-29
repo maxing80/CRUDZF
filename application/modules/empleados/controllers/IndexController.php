@@ -34,6 +34,7 @@ class Empleados_IndexController extends Zend_Controller_Action
     public function addempleadoAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);
+        $this->_helper->layout->disableLayout();
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParams();
@@ -46,15 +47,38 @@ class Empleados_IndexController extends Zend_Controller_Action
                     'f_nacimiento' => $data['f_nacimiento'],
                     'ingresos' => $data['ingresos']
                 );
+
                 $result = $client->addEmpleado($data)->get();
-                echo "<pre>" . print_r($result->addEmpleado, true) . "</pre>";
+                echo $json = Zend_Json::encode($result->addEmpleado);
+
+            } catch (Exception $e) {
+                var_dump($e);
+            }
+        }
+    }
+
+    /**
+     *
+     */
+    public function deleteempleadoAction()
+    {
+        $this->_helper->viewRenderer->setNoRender(true);
+        $this->_helper->layout->disableLayout();
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParams();
+            $wsRestUrl = "http://crudpf.app/wsservices/execute/index/";
+            try {
+                $client = new Zend_Rest_Client($wsRestUrl);
+                $result = $client->deleteEmpleado($data)->get();
+                echo $json = Zend_Json::encode($result->deleteEmpleado);
+
             } catch (Exception $e) {
                 var_dump($e);
             }
             exit();
-
-
-            exit;
         }
+        $this->_redirect('/empleados/index/');
+        exit();
     }
 }

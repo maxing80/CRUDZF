@@ -1,8 +1,13 @@
-<span id="logologin">
-    <label class="hidden">Registro de Empleados</label>
-</span>
+<div>
+    <div id="header" style="background-color: #EEEEEE; height: 30px;">
+        <div id="header-logo" style="float: left">
+            <b>Registros de Empleados</b>
+        </div>
+    </div>
+</div>
 <div>
     <form name="<?php echo $this->escape($this->element->getName()); ?>"
+          id="<?php echo $this->escape($this->element->getName()); ?>"
           method="<?php echo $this->escape($this->element->getMethod()); ?>"
           action="<?php echo $this->escape($this->element->getAction()); ?>">
         <label for="nombre">Nombre</label>

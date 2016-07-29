@@ -1,17 +1,22 @@
-<?php echo $this->doctype(); ?>
+<!-- application/layouts/scripts/layout.phtml -->
+<?php echo $this->doctype() ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Registro de Empleados</title>
+
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <?php echo $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8'); ?>
-    <?php echo $this->headScript()->prependFile('js/registro.js');
-    ?><?php echo "\r\n"; ?>
 
-    <?php echo $this->headTitle('Registro Empleados'); ?>
+    <?php $this->headScript()->prependFile('/js/registro.js');  ?>
 
+    <?php echo $this->headScript() ?>
+
+    <?php echo "\r\n"; ?>
 </head>
 <body>
-<div id="content">
-    <?php echo $this->layout()->content ?>
-</div>
+
+<?php echo $this->layout()->content ?>
+
 </body>
 </html>
