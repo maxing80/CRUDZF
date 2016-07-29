@@ -1,0 +1,50 @@
+<?php
+    echo $this->registroForm;
+?>
+<hr/>
+<div id="listEmpleados">
+    <?php
+    $noElementos = count($this->empleadosList);
+    if ($noElementos > 0){
+    ?>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>idEmpleado</td>
+                    <td>Nombre</td>
+                    <td>Apellidos</td>
+                    <td>F Nacimiento</td>
+                    <td>Sueldo</td>
+                    <td></td>
+                </tr>
+            </thead>
+        <?php
+        $i=0;
+        foreach ($this->empleadosList as $item){
+            foreach ($item as $empleado) {
+                if(isset($empleado->id_empleado)) {
+                    $fNacimiento = new Zend_Date($empleado->f_nacimiento, 'yyyy-mm-dd');
+                    ?>
+                    <tbody>
+                    <tr>
+                        <td><?php echo $empleado->id_empleado ?></td>
+                        <td><?php echo $empleado->nombre ?></td>
+                        <td><?php echo $empleado->apellidos ?></td>
+                        <td><?php echo $fNacimiento->toString("dd-mm-yyyy") ?></td>
+                        <td><?php echo $empleado->ingresos ?></td>
+                        <td><a href="#" data-id="<?php echo $empleado->id_empleado ?>" class="borrarEmpleado">Borrar</a></td>
+                    </tr>
+                    </tbody>
+
+                    <?php
+                }
+            }
+        }
+        echo "</table>";
+    }else{
+    ?>
+        <div><h3>Por el momento no se encuentran registros</h3></div>
+    <?php
+    }
+    ?>
+</div>

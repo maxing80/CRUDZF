@@ -1,0 +1,17 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <?php echo $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8'); ?>
+    <?php echo $this->headScript()->prependFile('js/registro.js');
+    ?><?php echo "\r\n"; ?>
+
+    <?php echo $this->headTitle('Registro Empleados'); ?>
+
+</head>
+<body>
+<div id="content">
+    <?php echo $this->layout()->content ?>
+</div>
+</body>
+</html>
