@@ -3,16 +3,16 @@
 </span>
 <div>
     <form name="<?php echo $this->escape($this->element->getName()); ?>"
-          method="<?php echo  $this->escape($this->element->getMethod()); ?>"
+          method="<?php echo $this->escape($this->element->getMethod()); ?>"
           action="<?php echo $this->escape($this->element->getAction()); ?>">
-            <label for="nombre">Nombre</label>
-            <?php echo $this->element->nombre; ?>
-            <label for="apellidos">Apellidos</label>
-            <?php echo $this->element->apellidos; ?>
-            <label for="apellidos">Fecha de Nacimiento</label>
-            <?php echo $this->element->f_nacimiento; ?>
-            <label for="apellidos">Ingresos</label>
-            <?php echo $this->element->ingresos; ?>
-            <?php echo $this->element->Registrar; ?>
+        <label for="nombre">Nombre</label>
+        <?php echo $this->element->nombre; ?>
+        <label for="apellidos">Apellidos</label>
+        <?php echo $this->element->apellidos; ?>
+        <label for="apellidos">Fecha de Nacimiento</label>
+        <?php echo $this->element->f_nacimiento; ?>
+        <label for="apellidos">Ingresos</label>
+        <?php echo $this->element->ingresos; ?>
+        <?php echo $this->element->Registrar; ?>
     </form>
 </div>

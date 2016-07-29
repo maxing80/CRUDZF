@@ -2,7 +2,9 @@
 
 class Empleados_TestwsController extends Zend_Controller_Action
 {
-
+    /**
+     *
+     */
     public function preDispatch()
     {
 
@@ -10,6 +12,9 @@ class Empleados_TestwsController extends Zend_Controller_Action
         $this->_helper->layout->disableLayout();
     }
 
+    /**
+     *
+     */
     public function testwsAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);
@@ -21,6 +26,10 @@ class Empleados_TestwsController extends Zend_Controller_Action
         echo "<pre>" . print_r($response, true) . "</pre>";
         exit();
     }
+
+    /**
+     *
+     */
     public function addAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);
@@ -36,6 +45,9 @@ class Empleados_TestwsController extends Zend_Controller_Action
         exit();
     }
 
+    /**
+     *
+     */
     public function editAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);
@@ -52,6 +64,9 @@ class Empleados_TestwsController extends Zend_Controller_Action
         exit();
     }
 
+    /**
+     *
+     */
     public function deleteAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);
@@ -64,6 +79,9 @@ class Empleados_TestwsController extends Zend_Controller_Action
         exit();
     }
 
+    /**
+     *
+     */
     public function getAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);
@@ -76,6 +94,10 @@ class Empleados_TestwsController extends Zend_Controller_Action
         exit();
     }
 
+    /**
+     *
+     */
+
     public function getallAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);
@@ -85,6 +107,9 @@ class Empleados_TestwsController extends Zend_Controller_Action
         exit();
     }
 
+    /**
+     *
+     */
     public function addwsAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);

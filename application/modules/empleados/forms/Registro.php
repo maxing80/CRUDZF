@@ -7,8 +7,7 @@
 class Empleados_Form_Registro extends Zend_Form
 {
     /**
-     * Metodo que crea el formulario con los campos y validadores necesarios
-     * @return	render Zend_Form
+     * @return string
      */
     public function init()
     {
@@ -18,24 +17,24 @@ class Empleados_Form_Registro extends Zend_Form
 
         $this->addElements(array(
             new Zend_Form_Element_Text('nombre', array(
-                'required'		=>	true,
-                'filters'		=>	array('StringTrim', 'StripTags'),
-                'validators' 	=>	array('Alpha')
+                'required' => true,
+                'filters' => array('StringTrim', 'StripTags'),
+                'validators' => array('Alpha')
             )),
             new Zend_Form_Element_Text('apellidos', array(
-                'required'		=>   true,
-                'filters'		=>   array('StringTrim', 'StripTags'),
-                'validators'	=>   array('Alpha')
+                'required' => true,
+                'filters' => array('StringTrim', 'StripTags'),
+                'validators' => array('Alpha')
             )),
             new Zend_Form_Element_Text('f_nacimiento', array(
-                'required'		=>   true,
-                'filters'		=>   array('StringTrim', 'StripTags'),
-                'validators'	=>   array('Alpha')
+                'required' => true,
+                'filters' => array('StringTrim', 'StripTags'),
+                'validators' => array('Alpha')
             )),
             new Zend_Form_Element_Text('ingresos', array(
-                'required'		=>   true,
-                'filters'		=>   array('StringTrim', 'StripTags'),
-                'validators'	=>   array('Alpha')
+                'required' => true,
+                'filters' => array('StringTrim', 'StripTags'),
+                'validators' => array('Alpha')
             ))
         ));
         $submit = new Zend_Form_Element_Submit('Registrar');
@@ -48,5 +47,5 @@ class Empleados_Form_Registro extends Zend_Form
 
         return $this->render();
 
-    } // end init
+    }
 }

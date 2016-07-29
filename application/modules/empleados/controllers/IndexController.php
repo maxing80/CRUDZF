@@ -1,11 +1,21 @@
 <?php
-class Empleados_IndexController extends Zend_Controller_Action {
 
-    public function preDispatch() {
+class Empleados_IndexController extends Zend_Controller_Action
+{
+
+    /**
+     *
+     */
+    public function preDispatch()
+    {
         $this->_helper->layout()->setLayout('empleados');
     }
 
-    public function indexAction() {
+    /**
+     *
+     */
+    public function indexAction()
+    {
         $this->view->registroForm = new Empleados_Form_Registro();
         $wsRestUrl = "http://crudpf.app/wsservices/execute/index/";
         try {
@@ -18,7 +28,11 @@ class Empleados_IndexController extends Zend_Controller_Action {
 
     }
 
-    public function addempleadoAction() {
+    /**
+     *
+     */
+    public function addempleadoAction()
+    {
         $this->_helper->viewRenderer->setNoRender(true);
 
         if ($this->getRequest()->isPost()) {
@@ -38,7 +52,6 @@ class Empleados_IndexController extends Zend_Controller_Action {
                 var_dump($e);
             }
             exit();
-
 
 
             exit;

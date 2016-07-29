@@ -1,12 +1,23 @@
 <?php
 
-class Ws_Empleado{
-    public function testWebService($data) {
-        $wSResponseRP=array("testWebService" => "OK");
+class Ws_Empleado
+{
+    /**
+     * @param $data
+     * @return array
+     */
+    public function testWebService($data)
+    {
+        $wSResponseRP = array("testWebService" => "OK");
         return $wSResponseRP;
     }
 
-    public function addEmpleado($data) {
+    /**
+     * @param $data
+     * @return mixed
+     */
+    public function addEmpleado($data)
+    {
         $empleado = new Wsservices_Model_Empleado;
         $response = $empleado->add($data);
         $data['id_empleado'] = $response['id_empleado'];
@@ -15,7 +26,12 @@ class Ws_Empleado{
         return $response;
     }
 
-    public function editEmpleado($data) {
+    /**
+     * @param $data
+     * @return string
+     */
+    public function editEmpleado($data)
+    {
         $empleado = new Wsservices_Model_Empleado;
         $response = $empleado->edit($data);
         $datEmpleado = new Wsservices_Model_Datosempleado();
@@ -23,7 +39,12 @@ class Ws_Empleado{
         return $response;
     }
 
-    public function deleteEmpleado($data) {
+    /**
+     * @param $data
+     * @return string
+     */
+    public function deleteEmpleado($data)
+    {
         $empleado = new Wsservices_Model_Empleado;
         $response = $empleado->deleteE($data);
         $datEmpleado = new Wsservices_Model_Datosempleado();
@@ -32,13 +53,22 @@ class Ws_Empleado{
         return $response;
     }
 
-    public function getEmpleado($data) {
+    /**
+     * @param $data
+     * @return array
+     */
+    public function getEmpleado($data)
+    {
         $empleado = new Wsservices_Model_Empleado;
         $response = $empleado->getEmpleado($data);
         return $response;
     }
 
-    public function getAllEmpleados() {
+    /**
+     * @return array
+     */
+    public function getAllEmpleados()
+    {
         $empleado = new Wsservices_Model_Empleado;
         $response = $empleado->getAllEmpleados();
         return $response;

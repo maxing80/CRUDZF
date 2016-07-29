@@ -11,22 +11,30 @@ class Wsservices_Model_Datosempleado extends Zend_Db_Table_Abstract
     protected $_name = 'datos_empleado';
     protected $_primary = "id_datos_empleado";
 
+    /**
+     * @return Zend_Db_Table_Rowset_Abstract
+     */
     public function getAll()
     {
         return $this->fetchAll(null, "id_empleado asc");
     }
-    public function getEmpleado($data){
+
+    /**
+     * @param $data
+     * @return array
+     */
+    public function getEmpleado($data)
+    {
         $sql = "select emp.id_empleado, emp.nombre, emp.apellidos, dat.f_nacimiento, dat.ingresos 
                 from empleado emp
                 left join datos_empleado dat on emp.id_empleado = dat.id_empleado";
         //die($select->__toString()."\n");
 
 
-
         $select = $this->select()
             ->setIntegrityCheck(false)
             ->from(array('emp' => 'empleado'), array(
-            "id_empleado"
+                "id_empleado"
             , "emp.nombre"
             , "emp.apellidos"
             , "dat.f_nacimiento"
@@ -39,6 +47,10 @@ class Wsservices_Model_Datosempleado extends Zend_Db_Table_Abstract
         return $res->toArray();
     }
 
+    /**
+     * @param $data
+     * @return mixed
+     */
     public function add($data)
     {
         $row = $this->createRow();
@@ -56,6 +68,10 @@ class Wsservices_Model_Datosempleado extends Zend_Db_Table_Abstract
         return $data;
     }
 
+    /**
+     * @param $data
+     * @return string
+     */
     public function edit($data)
     {
         $fNacimiento = new Zend_Date($data['f_nacimiento'], 'dd-mm-yyyy');
@@ -69,6 +85,10 @@ class Wsservices_Model_Datosempleado extends Zend_Db_Table_Abstract
         return $response;
     }
 
+    /**
+     * @param $data
+     * @return string
+     */
     public function deleteE($data)
     {
         $res = $this->delete("id_empleado = {$data['id_empleado']}");

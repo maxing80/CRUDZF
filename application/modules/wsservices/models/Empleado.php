@@ -11,7 +11,11 @@ class Wsservices_Model_Empleado extends Zend_Db_Table_Abstract
     protected $_name = 'empleado';
     protected $_primary = "id_empleado";
 
-    public function getAllEmpleados(){
+    /**
+     * @return array
+     */
+    public function getAllEmpleados()
+    {
 
         $select = $this->select()
             ->setIntegrityCheck(false)
@@ -28,12 +32,17 @@ class Wsservices_Model_Empleado extends Zend_Db_Table_Abstract
         return $res->toArray();
     }
 
-    public function getEmpleado($data){
+    /**
+     * @param $data
+     * @return array
+     */
+    public function getEmpleado($data)
+    {
 
         $select = $this->select()
             ->setIntegrityCheck(false)
             ->from(array('emp' => 'empleado'), array(
-            "id_empleado"
+                "id_empleado"
             , "emp.nombre"
             , "emp.apellidos"
             , "dat.f_nacimiento"
@@ -46,6 +55,10 @@ class Wsservices_Model_Empleado extends Zend_Db_Table_Abstract
         return $res->toArray();
     }
 
+    /**
+     * @param $data
+     * @return mixed
+     */
     public function add($data)
     {
         $row = $this->createRow();
@@ -61,6 +74,10 @@ class Wsservices_Model_Empleado extends Zend_Db_Table_Abstract
         return $data;
     }
 
+    /**
+     * @param $data
+     * @return string
+     */
     public function edit($data)
     {
         $dataTmp = array(
@@ -73,6 +90,10 @@ class Wsservices_Model_Empleado extends Zend_Db_Table_Abstract
         return $response;
     }
 
+    /**
+     * @param $data
+     * @return string
+     */
     public function deleteE($data)
     {
         $res = $this->delete("id_empleado = {$data['id_empleado']}");
